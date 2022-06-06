@@ -15,14 +15,24 @@ everything scalable and well organised. Hyper-parameter tuning of the
 Currently the model achieves a Mean Absolute Error of `14568.98`, which ranks it
 `668th` in the leaderboard of the competition mentioned above. At the time of
 writing, the competition has `38808` different slutions uploaded, so this model
-is in top `1.7%`.
+is in top `1.7%` (username ThomaZoto).
 
 ## Deep Learning Approach
 This model is available through the file `House_Prices_Skorch.ipynb`.
 The implementation is done through a pipeline framework in order to keep
 everything scalable and well organised. Hyper-parameter tuning of the
 `NeuralNet Regressor` is done through `GridSearchCV`. The main libraries used are
-`SciKit-Learn`, `PyTorch` and `Skorch`.
+`SciKit-Learn`, `Dask`, `PyTorch` and `Skorch`.
+
+### Model Training
+The model has been trained and optimized in parallel using the `Dask` library.
+As is, the code will run on a local `dask cluster` over 4 CPU cores, however,
+it can easily be made to run in one or more GPUs (if available). Moreover, the
+dask client can also be an AWS cluster. To set up the AWS cluster for using
+`Dask`, I advise using the book 'Data Science with Python and Dask' by Jesse
+C. Daniel.
+The whole book is nicely structured and the configuration of a `Dask` cluster on
+AWS is explained in Chapter 11.
 
 ## Usage
 All of the libraries needed to run each of the files are mentioned above and can
